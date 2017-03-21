@@ -1,5 +1,9 @@
-import urllib, json
-url = "http://maps.googleapis.com/maps/api/geocode/json?address=google"
-response = urllib.urlopen(url)
-data = json.loads(response.read())
-print data
+import urllib.request
+u=urllib.request.urlopen('http://10.77.14.15:8080/bms/wmserver/list')
+data=u.read()
+from xml.etree.ElementTree import XML
+doc=XML(data)
+
+#for pt in doc.findall('.//serviceIp'):
+#print(pt.text)
+print (doc)
